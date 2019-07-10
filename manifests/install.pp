@@ -19,7 +19,10 @@ class sophos::install (
     cleanup       => false,  # keep the file on the server
     creates       => "${installer_path}/Sophos Installer Components",
   }
-  file{["${installer_path}/Sophos Installer.app/Contents/MacOS/Sophos Installer","${installer_path}/Sophos Installer.app/Contents/MacOS/tools/com.sophos.bootstrap.helper"]:
+  file{[
+    "${installer_path}/Sophos Installer.app/Contents/MacOS/Sophos Installer",
+    "${installer_path}/Sophos Installer.app/Contents/MacOS/tools/com.sophos.bootstrap.helper"
+    ]:
     mode        => '0777',
     subscribe   => Archive["${installer_path}/${installer_name}"],
     }
