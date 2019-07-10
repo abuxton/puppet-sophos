@@ -7,8 +7,8 @@ describe 'sophos::install' do
       let(:params)  do
         {
           installer_source: 'https://example.com/sample.zip',
-          installer_path: '/tmp',
-          installer_name: 'SophosInstall.zip',
+          installer_path:   '/tmp',
+          installer_name:   'SophosInstall.zip'
         }
       end
 

@@ -4,6 +4,14 @@ describe 'sophos::service' do
   on_supported_os.each do |os, os_facts|
     context "on #{os}" do
       let(:facts) { os_facts }
+      let(:params)  do
+        {
+        enable_service:         true,
+        ensure_agent:           'running',
+        ensure_servicemanager:  'running',
+        ensure_uiserver:        'running'
+        }
+      end
 
       it { is_expected.to compile }
       it { is_expected.to contain_class('sophos::service') }
