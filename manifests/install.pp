@@ -23,11 +23,11 @@ class sophos::install (
     "${installer_path}/Sophos Installer.app/Contents/MacOS/Sophos Installer",
     "${installer_path}/Sophos Installer.app/Contents/MacOS/tools/com.sophos.bootstrap.helper"
     ]:
-    mode        => '0777',
-    subscribe   => Archive["${installer_path}/${installer_name}"],
+    mode      => '0777',
+    subscribe => Archive["${installer_path}/${installer_name}"],
     }
   exec { 'sophos install' :
-    command     => "'${installer_path}/Sophos Installer.app/Contents/MacOS/Sophos Installer --install'",
+    command     => "'${installer_path}/Sophos Installer.app/Contents/MacOS/Sophos Installer' --install",
     refreshonly => true,
     subscribe   => Archive["${installer_path}/${installer_name}"],
     group       => 'wheel',
