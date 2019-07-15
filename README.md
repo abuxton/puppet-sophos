@@ -40,8 +40,11 @@ needs os unzip, and wget.
 
 The very basic steps needed for a user to get the module up and running. This can include setup steps, if necessary, or it can be an example of the most basic use of the module.
 
+```puppet
+include sophos #requires sophos::installer_source set in hiera
 ```
-include sophos #requires sophos::installer_source set in heira
+or
+```puppet
 class {'sophos':
   installer_source => https://api-cloudstation-us-east-2.prod.hydra.sophos.com/api/download/<TOKEN>/SophosInstall.zip} #example url but any url will substitute
 }
